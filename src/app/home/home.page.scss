@@ -1,0 +1,30 @@
+.avatar-wrapper {
+  margin: 0 auto !important;
+  margin-top: 25px !important;
+}
+
+.repo-content {
+  ion-label {
+    font-size: 10px;
+  }
+
+  ion-button[color="danger"] {
+    --border-radius: 0;
+    width: 100%;
+  }
+}
+
+.input-wrapper {
+  font-size: 13px;
+}
+
+.flex-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.instruction-wrapper {
+  font-size: 12px;
+  text-align: center;
+}

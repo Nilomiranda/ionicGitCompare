@@ -1,0 +1,28 @@
+// App Styles
+// ----------------------------------------------------------------------------
+// Put style rules here that you want to apply to the entire application. These
+// styles are for the entire app and not just one component. Additionally, this
+// file can hold Sass mixins, functions, and placeholder classes to be imported
+// and used throughout the application.
+ion-button[type="submit"] {
+  --box-shadow: 0 0 5px var(--ion-color-primary-tint);
+  --border-radius: 6px;
+  --padding-start: 50px;
+  --padding-end: 50px;
+  --padding-top: 20px;
+  --padding-bottom: 20px;
+  font-size: .8em;
+  margin: 1.1em;
+}
+
+.input-wrapper {
+  --border-radius: 4px;
+  --border-color: var(--ion-color-light);
+  --border-style: solid;
+  --border-width: 2px;
+}
+
+.button__delete {
+  --border-radius: 6px !important;
+  margin: 1.1em 0;
+}

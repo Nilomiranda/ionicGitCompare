@@ -1,0 +1,64 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title text-center>
+      GITCOMPARE
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <ion-item class="input-wrapper" lines="none">
+          <ion-label position="floating">username/repository</ion-label>
+          <ion-input value="facebook/react" type="text" #searchedRepo></ion-input>
+        </ion-item>
+        <ion-row>
+          <ion-col class="flex-wrapper">
+            <ion-button type="submit" expand="block" color="submit" (click)="lookForRepository(searchedRepo.value)">
+              ADD REPOSITORY
+            </ion-button>
+            <ion-spinner name="dots" class="loading-wrapper" *ngIf="isLoading"></ion-spinner>
+          </ion-col>
+        </ion-row>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <ion-item *ngIf="repositories.length <= 0" class="instruction-wrapper">
+          <ion-text>
+            You don't have any repository added. 😢
+            Starting adding repositories by searching for
+            the repository's owner and name.
+          </ion-text>
+        </ion-item>
+        <ion-list *ngFor="let repo of repositories">
+          <ion-card text-center>
+            <ion-card-header text-center>{{ repo.name }}</ion-card-header>
+            <ion-card-subtitle text-center>{{ repo.owner.login }}</ion-card-subtitle>
+            <ion-avatar class="avatar-wrapper" align-self-center>
+              <img [src]="repo.owner.avatarUrl" alt="Danilo"/>
+            </ion-avatar>
+            <ion-card-content class="repo-content">
+              <ion-list>
+                <ion-item>
+                  <ion-label>Number of stars: {{ repo.stargazersCount }}</ion-label>
+                </ion-item>
+                <ion-item>
+                  <ion-label>Watchers: {{ repo.watchersCount }}</ion-label>
+                </ion-item>
+                <ion-item>
+                  <ion-label>Last updated at: {{ repo.updatedAt | date:'short' }}</ion-label>
+                </ion-item>
+              </ion-list>
+              <ion-button mode="ios" class="button__delete" color="danger" expand="block" (click)="deleteRepository(repo.id)">
+                <ion-icon name="trash"></ion-icon>
+              </ion-button>
+            </ion-card-content>
+          </ion-card>
+        </ion-list>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
